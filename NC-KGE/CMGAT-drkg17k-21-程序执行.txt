@@ -1,0 +1,128 @@
+在丹阳的模型上，测试FB15k-237
+
+
+tmux test201开始
+
+ CUDA_VISIBLE_DEVICES=3 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29201 run_fb15k-237_no_dgi.py --dataset FB15k-237 --optimizer adamw --use_test 1 --test_name optimizer_adamw  ，默认使用的是余弦'CosineAnnealingLR'，所以比较GAT版本的'CosineAnnealingLR'即可
+结束
+
+
+
+ 目前模型使用动态学习率和AdamW效果不好。现在使用丹阳的原始的策略：adam
+
+  CUDA_VISIBLE_DEVICES=3 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29202 run_fb15k-237_no_dgi.py --dataset FB15k-237 --optimizer adam --change_lr 0 --use_test 1 --test_name optimizer_adam_change_lr_false
+
+结束，效果依旧不好
+
+
+跑一下丹阳最原始的程序，tmux dy001,计算所跑，dy002。丹阳的代码，默认设置不是最好的，效果很差
+
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch run_fb15k-237_no_dgi.py
+
+Epoch 433 
+MRR： 0.35832,
+MR： 222.93394,
+Hit@1： 0.26744
+Hits@3： 0.39224
+Hits@10： 0.54175
+
+
+
+FB15k-237上的数据集效果达到了实验要求
+
+看看在改造之后的代码上的效果：CMGAT
+
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29202 run_fb15k-237_no_dgi.py --dataset FB15k-237 --optimizer adam --change_lr 0 --use_test 1 --test_name new_optimizer_adam_change_lr_false
+结束
+
+Epoch:415 
+测试:
+Test_mrr: 0.35753
+Test_mr: 218.22217
+Test_hit1: 0.26644
+Test_hit3: 0.39250
+Test_hit10: 0.53877
+
+结论，CMGAT基本上达到了丹阳的源代码要求
+
+
+
+
+
+
+试试对比学习：
+
+CUDA_VISIBLE_DEVICES=2,3 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 2 --rdzv_id 2 run_fb15k-237_no_dgi.py  --dataset FB15k-237 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem0.2  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 0.2 --stop_num 1000 --change_lr 0 --optimizer adam 
+
+
+tmux a -t drkg3
+ssh scx6266@paraai-n32-h-01-agent-15
+conda activate GNN
+module load bazel/3.7.2
+module load compilers/cuda/11.3
+module load compilers/gcc/9.3.0
+module load nccl/2.17.1-1_cuda11.3
+cd /home/bingxing2/home/scx6266/GNN/new_CMGAT
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx6266/.conda/envs/geodiff/lib/python3.8/site-packages/sklearn/__check_build/../../scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+
+
+从头跑，温度系数从1.0开始， 跑
+
+CUDA_VISIBLE_DEVICES=3 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_drkg17k-21_no_dgi.py  --dataset DRKG17k-21 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 1.0 --stop_num 100 --change_lr 0 --optimizer adam 
+
+
+
+--save_path LP_ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0_notext_conve_contrastive_loss_DRKG17k-21_CLcmgat_08_06_2023_16_26_50
+
+
+
+
+2023-06-12 11:00:08,406 - run_drkg17k-21_no_dgi.py - [INFO] - best_epoch: 85
+2023-06-12 11:00:08,406 - run_drkg17k-21_no_dgi.py - [INFO] - best_lr: 0.0010000000
+2023-06-12 11:00:08,407 - run_drkg17k-21_no_dgi.py - [INFO] - best_mrr: 0.79983
+2023-06-12 11:00:08,407 - run_drkg17k-21_no_dgi.py - [INFO] - best_mr: 171.25573
+2023-06-12 11:00:08,407 - run_drkg17k-21_no_dgi.py - [INFO] - best_hit1: 0.77444
+2023-06-12 11:00:08,407 - run_drkg17k-21_no_dgi.py - [INFO] - best_hit3: 0.81059
+2023-06-12 11:00:08,407 - run_drkg17k-21_no_dgi.py - [INFO] - best_hit10: 0.84631
+2023-06-12 11:00:08,407 - run_drkg17k-21_no_dgi.py - [INFO] - 
+
+
+
+
+tmux a -t drkg 验证集 来自于,且相等 测试集
+
+
+CUDA_VISIBLE_DEVICES=1 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_drkg17k-21_no_dgi.py  --dataset DRKG17k-21 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 1.0 --stop_num 1000 --change_lr 0 --optimizer adam 
+
+
+tmux a -t drkg2  正常训练验证测试 old_valid
+
+CUDA_VISIBLE_DEVICES=2 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_drkg17k-21_no_dgi.py  --dataset DRKG17k-21 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 1.0 --stop_num 1000 --change_lr 0 --optimizer adam 
+
+
+
+160上正常测试 tmux a -t drkg
+CUDA_VISIBLE_DEVICES=2 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_drkg17k-21_no_dgi.py  --dataset DRKG17k-21 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 1.0 --stop_num 1000 --change_lr 0 --optimizer adam 
+
+
+
+
+2023-07-18 07:19:08,080 - run_drkg17k-21_no_dgi.py - [INFO] - best_epoch: 79
+2023-07-18 07:19:08,080 - run_drkg17k-21_no_dgi.py - [INFO] - best_lr: 0.0010000000
+2023-07-18 07:19:08,080 - run_drkg17k-21_no_dgi.py - [INFO] - best_mrr: 0.59096
+2023-07-18 07:19:08,081 - run_drkg17k-21_no_dgi.py - [INFO] - best_mr: 161.94592
+2023-07-18 07:19:08,081 - run_drkg17k-21_no_dgi.py - [INFO] - best_hit1: 0.50555
+2023-07-18 07:19:08,081 - run_drkg17k-21_no_dgi.py - [INFO] - best_hit3: 0.63754
+2023-07-18 07:19:08,081 - run_drkg17k-21_no_dgi.py - [INFO] - best_hit10: 0.74981
+2023-07-18 07:19:08,081 - run_drkg17k-21_no_dgi.py - [INFO] - 
+
+
+state['optimizer']: dict_keys(['state', 'param_groups'])
+2023-07-18 07:19:24,008 - run_drkg17k-21_no_dgi.py - [INFO] - 测试:
+2023-07-18 07:19:24,008 - run_drkg17k-21_no_dgi.py - [INFO] - Test_mrr: 0.59048
+2023-07-18 07:19:24,008 - run_drkg17k-21_no_dgi.py - [INFO] - Test_mr: 162.24181
+2023-07-18 07:19:24,009 - run_drkg17k-21_no_dgi.py - [INFO] - Test_hit1: 0.50498
+2023-07-18 07:19:24,009 - run_drkg17k-21_no_dgi.py - [INFO] - Test_hit3: 0.63729
+2023-07-18 07:19:24,009 - run_drkg17k-21_no_dgi.py - [INFO] - Test_hit10: 0.74744
+2023-07-18 07:19:24,009 - run_drkg17k-21_no_dgi.py - [INFO] - 程序终止时间:Tue Jul 18 07:19:24 2023
+file name: LP_ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0_notext_conve_contrastive_loss_DRKG17k-21_CLcmgat_07_07_2023_11_15_32

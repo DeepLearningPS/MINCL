@@ -1,0 +1,105 @@
+安装cuda11.7
+
+pip install tensorflow-gpu==2.9.0
+
+
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+
+pip install torch_scatter==2.1.0 torch_sparse==0.6.16 torch_cluster==1.6.1 torch_spline_conv==1.2.2 torch_geometric==2.2.0 -f https://data.pyg.org/whl/torch-1.13.1+cu117.html
+
+pip install ordered_set pickle5
+
+
+>=cuda11.6 pytroch在并行科技上无法执行
+
+
+
+对比学习环境安装
+
+这个在并行科技上可以
+安装cuda11.1
+
+module load anaconda/2021.11 compilers/cuda/11.1 cudnn/8.2.1.32_cuda11.x compilers/gcc/9.3.0
+
+
+module load compilers/cuda/11.1 compilers/gcc/9.3.0 cudnn/8.6.0.163_cuda11.x bazel/3.7.2
+
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx6266/.conda/envs/geodiff/lib/python3.8/site-packages/sklearn/__check_build/../../scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+
+
+
+pip install tensorflow-gpu==2.9.0
+pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+
+pip install torch_scatter==2.0.9 torch_sparse==0.6.13 torch_cluster==1.6.0 torch_spline_conv==1.2.1 torch_geometric==2.2.0 -f https://data.pyg.org/whl/torch-1.10.1+cu111.html
+
+pip install torch_scatter==2.0.9 torch_sparse==0.6.12 torch_cluster==1.6.0 torch_geometric==2.1.0 -f https://data.pyg.org/whl/torch-1.10.1+cu111.html
+
+pip install ordered_set pickle5 tf_geometric
+
+
+
+cd /home/bingxing2/home/scx6266/GNN/new_CMGAT2
+
+
+module load bazel/3.7.2
+module load compilers/cuda/11.1
+module load compilers/gcc/9.3.0  
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx6266/.conda/envs/geodiff/lib/python3.8/site-packages/sklearn/__check_build/../../scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+
+取消模块：module unload compilers/cuda/11.1
+
+
+
+
+
+ECDock安装
+安装cuda11.1
+
+运行时出现段错误
+
+
+#module load anaconda/2021.11 compilers/cuda/11.1 cudnn/8.2.1.32_cuda11.x compilers/gcc/9.3.0
+
+加载模块
+module load compilers/cuda/11.1 compilers/gcc/9.3.0 cudnn/8.6.0.163_cuda11.x bazel/3.7.2
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx6266/.conda/envs/ecdock/lib/python3.8/site-packages/sklearn/__check_build/../../scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+
+
+安装包,段错误，可能是pyg版本问题
+
+pip install torch_scatter==2.0.9 torch_sparse==0.6.12 torch_cluster==1.6.0 torch_geometric==2.1.0 -f https://data.pyg.org/whl/torch-1.10.1+cu111.html
+
+
+pip install wandb Bio, e3nn, spyrmsd
+
+
+#python -m pip install PyYAML scipy "networkx[default]" biopython rdkit-pypi e3nn spyrmsd pandas biopandas wandb
+
+#pip install PyYAML networkx biopython rdkit e3nn spyrmsd pandas biopandas wandb
+
+
+
+安装本地包：
+
+#ESM
+cd /home/bingxing2/home/scx6266/MDocking/DiffDock/esm
+pip install -e ./
+
+
+#EC-Conf
+cd /home/bingxing2/home/scx6266/MDocking/DiffDock
+pip install -e ./
+
+
+pip install 'dllogger @ git+https://github.com/NVIDIA/dllogger'
+pip install 'openfold @ git+https://github.com/aqlaboratory/openfold.git@4b41059694619831a7db195b7e0988fc4ff3a307'
+
+
+在并行科技上：ECDock只适合在cuda11.3上，否则由于版本问题会出现段错误
+
+目前使用const的环境，不用加载环境模块
+
+module load bazel/3.7.2
+module load compilers/gcc/9.3.0  
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx6266/.conda/envs/geodiff/lib/python3.8/site-packages/sklearn/__check_build/../../scikit_learn.libs/libgomp-d22c30c5.so.1.0.0

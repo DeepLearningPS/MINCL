@@ -1,0 +1,13 @@
+Atc	0
+Gene	1
+Molecular Function	2
+Tax	3
+Cellular Component	4
+Side Effect	5
+Anatomy	6
+Compound	7
+Disease	8
+Symptom	9
+Pathway	10
+Biological Process	11
+Pharmacologic Class	12

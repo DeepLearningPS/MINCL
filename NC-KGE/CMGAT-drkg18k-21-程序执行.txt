@@ -1,0 +1,71 @@
+在丹阳的模型上，测试FB15k-237
+
+
+tmux test201开始
+
+ CUDA_VISIBLE_DEVICES=3 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29201 run_fb15k-237_no_dgi.py --dataset FB15k-237 --optimizer adamw --use_test 1 --test_name optimizer_adamw  ，默认使用的是余弦'CosineAnnealingLR'，所以比较GAT版本的'CosineAnnealingLR'即可
+结束
+
+
+
+ 目前模型使用动态学习率和AdamW效果不好。现在使用丹阳的原始的策略：adam
+
+  CUDA_VISIBLE_DEVICES=3 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29202 run_fb15k-237_no_dgi.py --dataset FB15k-237 --optimizer adam --change_lr 0 --use_test 1 --test_name optimizer_adam_change_lr_false
+
+结束，效果依旧不好
+
+
+跑一下丹阳最原始的程序，tmux dy001,计算所跑，dy002。丹阳的代码，默认设置不是最好的，效果很差
+
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch run_fb15k-237_no_dgi.py
+
+Epoch 433 
+MRR： 0.35832,
+MR： 222.93394,
+Hit@1： 0.26744
+Hits@3： 0.39224
+Hits@10： 0.54175
+
+
+
+FB15k-237上的数据集效果达到了实验要求
+
+看看在改造之后的代码上的效果：CMGAT
+
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29202 run_fb15k-237_no_dgi.py --dataset FB15k-237 --optimizer adam --change_lr 0 --use_test 1 --test_name new_optimizer_adam_change_lr_false
+结束
+
+Epoch:415 
+测试:
+Test_mrr: 0.35753
+Test_mr: 218.22217
+Test_hit1: 0.26644
+Test_hit3: 0.39250
+Test_hit10: 0.53877
+
+结论，CMGAT基本上达到了丹阳的源代码要求
+
+
+
+
+
+
+试试对比学习：
+
+CUDA_VISIBLE_DEVICES=2,3 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 2 --rdzv_id 2 run_fb15k-237_no_dgi.py  --dataset FB15k-237 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem0.2  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 0.2 --stop_num 1000 --change_lr 0 --optimizer adam 
+
+
+tmux a -t drkg2
+ssh scx6266@paraai-n32-h-01-agent-15
+conda activate geodiff
+module load bazel/3.7.2
+module load compilers/cuda/11.3
+module load compilers/gcc/9.3.0
+module load nccl/2.17.1-1_cuda11.3
+cd /home/bingxing2/home/scx6266/GNN/new_达到实验结果的CMGAT
+export LD_PRELOAD=$LD_PRELOAD:/home/bingxing2/home/scx6266/.conda/envs/geodiff/lib/python3.8/site-packages/sklearn/__check_build/../../scikit_learn.libs/libgomp-d22c30c5.so.1.0.0
+
+
+从头跑，温度系数从1.0开始  太消耗时间了，A100上需要40分钟一个epoch，因此先暂停，使用drkg17k-21这个50万级别的数据集
+
+CUDA_VISIBLE_DEVICES=1 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_drkg18k-21_no_dgi.py  --dataset DRKG18k-21 --loss_function contrastive_loss --use_test 1 --test_name ChangeLR-UnitVec-BN-CLoss-part-sample-Tem1.0  --score_func conve --subgraph_loss_rate 0 --sample_mod part --temperature 1.0 --stop_num 100 --change_lr 0 --optimizer adam 

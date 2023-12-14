@@ -1,0 +1,4 @@
+Disease	0
+Atc	1
+Gene	2
+Compound	3

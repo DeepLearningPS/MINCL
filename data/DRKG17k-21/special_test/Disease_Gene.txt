@@ -1,0 +1,47 @@
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::7329
+Disease::MESH:D006517	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::689
+Disease::MESH:D001351	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::8761
+Disease::SARS-CoV2 orf9c	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::27069
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::819
+Disease::MESH:D001351	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::4691
+Disease::SARS-CoV2 orf9b	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::7812
+Disease::SARS-CoV2 nsp13	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::2804
+Disease::SARS-CoV2 orf10	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::55700
+Disease::SARS-CoV2 nsp13	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::145282
+Disease::SARS-CoV2 orf9b	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::79077
+Disease::SARS-CoV2 orf8	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::80213
+Disease::MESH:D001351	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::4869
+Disease::SARS-CoV2 orf3a	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::25777
+Disease::SARS-CoV2 orf8	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::55768
+Disease::SARS-CoV2 orf9c	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::79671
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::6224
+Disease::SARS-CoV2 nsp13	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::11190
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::85437
+Disease::SARS-CoV2 M	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::196527
+Disease::SARS-CoV2 nsp13	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::11116
+Disease::SARS-CoV2 orf9c	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::79956
+Disease::MESH:D006517	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::51187
+Disease::SARS-CoV2 nsp9	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::2963
+Disease::SARS-CoV2 nsp12	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::24149
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::116841
+Disease::MESH:D001351	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::1653
+Disease::SARS-CoV2 nsp7	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::9653
+Disease::SARS-CoV2 orf8	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::8614
+Disease::SARS-CoV2 orf8	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::56605
+Disease::SARS-CoV2 nsp4	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::440138
+Disease::SARS-CoV2 orf10	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::5538
+Disease::MESH:D006517	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::9276
+Disease::SARS-CoV2 orf9c	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::7993
+Disease::MESH:D006517	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::84955
+Disease::SARS-CoV2 N	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::5976
+Disease::SARS-CoV2 nsp8	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::64432
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::5204
+Disease::SARS-CoV2 nsp8	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::56257
+Disease::SARS-CoV2 nsp7	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::55829
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::4539
+Disease::MESH:D045473	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::59272
+Disease::SARS-CoV2 nsp12	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::8737
+Disease::MESH:D006517	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::6729
+Disease::SARS-CoV2 nsp9	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::7458
+Disease::MESH:D001351	bioarx::Coronavirus_ass_host_gene::Disease:Gene	Gene::302
+Disease::SARS-CoV2 nsp9	bioarx::Covid2_acc_host_gene::Disease:Gene	Gene::9818

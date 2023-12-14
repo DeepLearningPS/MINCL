@@ -1,0 +1,3 @@
+Disease::MESH:D009373	Hetionet::DrD::Disease:Disease	Disease::DOID:1192
+Disease::MESH:D009373	Hetionet::DrD::Disease:Disease	Disease::DOID:1245
+Disease::MESH:D009373	Hetionet::DrD::Disease:Disease	Disease::DOID:363

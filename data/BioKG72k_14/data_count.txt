@@ -1,0 +1,50 @@
+all_data_num: 1157739
+NoRepeat all_data_set_num: 1157739
+
+
+all_data.tsv总数据: 1157739
+all_data.tsv第一列: 4210
+all_data.tsv第二列: 14
+all_data.tsv第三列: 71602 
+
+
+
+
+输出当前文件sub_NoRepeat_BioKG.txt：
+
+sub_NoRepeat_BioKG.txt 总数据: 1157739
+sub_NoRepeat_BioKG.txt 去重复后的总数据: 1157739
+sub_NoRepeat_BioKG.txt node_num: 72569
+sub_NoRepeat_BioKG.txt h_set: 4210
+sub_NoRepeat_BioKG.txt r_set: 14
+sub_NoRepeat_BioKG.txt t_set: 71602 
+
+len(all_trip_set): 1157739
+输出当前文件train.txt：
+
+train.txt 总数据: 927348
+train.txt 去重复后的总数据: 927348
+train.txt node_num: 70108
+train.txt h_set: 4150
+train.txt r_set: 14
+train.txt t_set: 69131 
+
+输出当前文件valid.txt：
+
+valid.txt 总数据: 114617
+valid.txt 去重复后的总数据: 114617
+valid.txt node_num: 43806
+valid.txt h_set: 3296
+valid.txt r_set: 14
+valid.txt t_set: 42740 
+
+输出当前文件test.txt：
+
+test.txt 总数据: 115774
+test.txt 去重复后的总数据: 115774
+test.txt node_num: 43989
+test.txt h_set: 3308
+test.txt r_set: 14
+test.txt t_set: 42898 
+
+len(all_trip_set): 1157739

@@ -1,0 +1,82 @@
+PharmKG.csv，看看这个文件是否重复，弄清重复是什么导致的。
+
+
+解决的方法：去重复之后，重新跑基线以及自己的模型，看看效果
+
+所以数据集，我们使用New_PharmKG
+
+文件名: PharmKG8k-28
+总的RDF个数： 480500
+总的不去重复RDF个数： 480500
+all node num: 7599
+train node num: 7520
+train rdf num: 384880 
+
+dev node num: 6637
+dev rdf num: 47570 
+
+test node num: 6628
+test rdf num: 48050 
+
+dev in train of node nums: 6595
+test in train of node nums: 6589 
+
+dev in train of rdf nums: 0
+test in train of rdf nums: 0 
+
+test in valid of node nums: 6256
+test in valid of rdf nums: 0
+输出当前文件train.tsv：
+
+train.tsv总数据: 384880
+train.tsv去重复后的总数据: 384880
+train.tsv第一列: 6949
+train.tsv第二列: 28
+train.tsv第三列: 7225 
+
+输出当前文件valid.tsv：
+
+valid.tsv总数据: 47570
+valid.tsv去重复后的总数据: 47570
+valid.tsv第一列: 5828
+valid.tsv第二列: 28
+valid.tsv第三列: 5746 
+
+输出当前文件test.tsv：
+
+test.tsv总数据: 48050
+test.tsv去重复后的总数据: 48050
+test.tsv第一列: 5809
+test.tsv第二列: 28
+test.tsv第三列: 5763 
+
+
+
+len(relation_set): 28
+len(entity_set): 7599
+len(all_entity2id): 7599
+len(entity_set): 7520
+len(entity_set): 6637
+len(entity_set): 6628
+384880
+训练集
+实体数量: 7520
+关系数量: 28
+三元组数量: 384880
+
+
+验证集
+实体数量: 6637
+关系数量: 28
+三元组数量: 47570
+
+
+测试集
+实体数量: 6628
+关系数量: 28
+三元组数量: 48050
+
+
+总的实体数量: 7599
+总的关系数量: 28
+总的三元组数量: 480500

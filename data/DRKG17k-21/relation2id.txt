@@ -1,0 +1,21 @@
+DRUGBANK::ddi-interactor-in::Compound:Compound	0
+bioarx::HumGenHumGen:Gene:Gene	1
+bioarx::DrugHumGen:Compound:Gene	2
+DGIDB::OTHER::Gene:Compound	3
+DGIDB::AGONIST::Gene:Compound	4
+DGIDB::INHIBITOR::Gene:Compound	5
+bioarx::VirGenHumGen:Gene:Gene	6
+DGIDB::POSITIVE ALLOSTERIC MODULATOR::Gene:Compound	7
+DGIDB::ANTAGONIST::Gene:Compound	8
+DGIDB::MODULATOR::Gene:Compound	9
+DRUGBANK::x-atc::Compound:Atc	10
+DGIDB::CHANNEL BLOCKER::Gene:Compound	11
+bioarx::DrugVirGen:Compound:Gene	12
+DGIDB::ACTIVATOR::Gene:Compound	13
+DGIDB::BINDER::Gene:Compound	14
+DGIDB::BLOCKER::Gene:Compound	15
+bioarx::Coronavirus_ass_host_gene::Disease:Gene	16
+bioarx::Covid2_acc_host_gene::Disease:Gene	17
+DGIDB::ALLOSTERIC MODULATOR::Gene:Compound	18
+DGIDB::ANTIBODY::Gene:Compound	19
+DGIDB::PARTIAL AGONIST::Gene:Compound	20

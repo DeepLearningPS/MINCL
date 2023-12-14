@@ -1,0 +1,93 @@
+训练集
+实体数量: 16252
+关系数量: 21
+三元组数量: 470526
+
+
+验证集
+实体数量: 8186
+关系数量: 21
+三元组数量: 58156
+
+
+测试集
+实体数量: 8242
+关系数量: 21
+三元组数量: 58743
+
+
+总的实体数量: 17508
+总的关系数量: 21
+总的三元组数量: 587425
+
+
+
+总的RDF个数： 587425
+总的不去重复RDF个数： 587425
+all node num: 17508
+train node num: 16252
+train rdf num: 470526 
+
+dev node num: 8186
+dev rdf num: 58156 
+
+test node num: 8242
+test rdf num: 58743 
+
+dev in train of node nums: 7538
+test in train of node nums: 7599 
+
+dev in train of rdf nums: 0
+test in train of rdf nums: 0
+test in valid of node nums: 6233 
+
+test in valid of rdf nums: 0
+
+
+
+重新划分你的数据集
+
+
+总的RDF个数： 587425
+总的不去重复RDF个数： 587425
+all node num: 17508
+train node num: 16141
+train rdf num: 465299 
+
+dev node num: 8183
+dev rdf num: 57509 
+
+test node num: 8574
+test rdf num: 64617 
+
+dev in train of node nums: 7516
+test in train of node nums: 7820 
+
+dev in train of rdf nums: 0
+test in train of rdf nums: 0
+test in valid of node nums: 6365 
+
+test in valid of rdf nums: 0
+
+
+训练集
+实体数量: 16141
+关系数量: 21
+三元组数量: 465299
+
+
+验证集
+实体数量: 8183
+关系数量: 21
+三元组数量: 57509
+
+
+测试集
+实体数量: 8574
+关系数量: 21
+三元组数量: 64617
+
+
+总的实体数量: 17508
+总的关系数量: 21
+总的三元组数量: 587425

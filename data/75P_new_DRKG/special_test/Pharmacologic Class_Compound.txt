@@ -1,0 +1,13 @@
+Pharmacologic Class::N0000175450	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00846
+Pharmacologic Class::N0000175721	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00482
+Pharmacologic Class::N0000175721	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00328
+Pharmacologic Class::N0000008486	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB05246
+Pharmacologic Class::N0000182141	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB01026
+Pharmacologic Class::N0000008486	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00313
+Pharmacologic Class::N0000008486	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00252
+Pharmacologic Class::N0000008486	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00593
+Pharmacologic Class::N0000185503	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB01167
+Pharmacologic Class::N0000182141	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00625
+Pharmacologic Class::N0000175459	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00879
+Pharmacologic Class::N0000175450	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00547
+Pharmacologic Class::N0000185503	Hetionet::PCiC::Pharmacologic Class:Compound	Compound::DB00243
