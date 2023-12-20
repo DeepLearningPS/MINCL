@@ -2,18 +2,7 @@ from helper import *
 from torch.utils.data import Dataset
 
 class TrainDataset(Dataset):
-	"""
-	Training Dataset class.
 
-	Parameters
-	----------
-	triples:	The triples used for training the model
-	params:		Parameters for the experiments
-	
-	Returns
-	-------
-	A training Dataset class instance used by DataLoader
-	"""
 	def __init__(self, triples, params):
 		self.triples	= triples
 		self.p 		= params
@@ -58,18 +47,6 @@ class TrainDataset(Dataset):
 
 
 class TestDataset(Dataset):
-	"""
-	Evaluation Dataset class.
-
-	Parameters
-	----------
-	triples:	The triples used for evaluating the model
-	params:		Parameters for the experiments
-	
-	Returns
-	-------
-	An evaluation Dataset class instance used by DataLoader for model evaluation
-	"""
 	def __init__(self, triples, params):
 		self.triples	= triples
 		self.p 		= params

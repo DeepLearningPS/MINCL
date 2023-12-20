@@ -4,7 +4,7 @@ import logging, logging.config
 from collections import defaultdict as ddict
 from ordered_set import OrderedSet
 
-# PyTorch related imports
+
 import torch
 from torch.nn import functional as F
 from torch.nn.init import xavier_normal_
@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader
 from torch.nn import Parameter
 from torch_scatter import scatter_add
 import math
-#np.set_printoptions(precision=4)
+
 
 import random
 
@@ -21,7 +21,7 @@ torch.manual_seed(48)
 np.random.seed(49)
 random.seed(50)
 
-#torch1.8没有irfft属性，为了兼容采取下面方法
+
 try:
     from torch import irfft
     from torch import rfft
@@ -67,16 +67,16 @@ def get_logger(name, log_dir, config_dir):
 
     """
     config_dict = json.load(open(os.path.join(config_dir, 'log_config.json')))
-    config_dict['handlers']['file_handler']['filename'] = os.path.join(log_dir, name.replace('/', '-')) #设置日志文件名
+    config_dict['handlers']['file_handler']['filename'] = os.path.join(log_dir, name.replace('/', '-')) 
     logging.config.dictConfig(config_dict)
     logger = logging.getLogger(name)
 
-    std_out_format = '%(asctime)s - %(filename)s - [%(levelname)s] - %(message)s' #%(asctime)s - %(filename)s - [%(levelname)s] - %(message)s
+    std_out_format = '%(asctime)s - %(filename)s - [%(levelname)s] - %(message)s' 
 
-    #std_out_format = '%(asctime)s - %(name)s - [%(levelname)s] - %(message)s' #这里的配置没啥用，仅仅受json配置的影响
+    
 
-    #std_out_format = '%(asctime)s  - [%(levelname)s] - %(message)s' ##这里的配置没啥用，仅仅受json配置的影响
-    #这里的格式匹设置的是屏幕输出的格式，而不是写入文件的格式，文件的格式在json里面
+    
+    
     
     consoleHandler = logging.StreamHandler(sys.stdout)
     consoleHandler.setFormatter(logging.Formatter(std_out_format))
@@ -132,7 +132,7 @@ def get_param(shape):
 
 
 def get_xavier_uniform(shape):
-	param = Parameter(torch.Tensor(*shape)); #注意这是带参数的，是要梯度更新的	
+	param = Parameter(torch.Tensor(*shape)); 
 	xavier_uniform_(param.data)
 	return param
 

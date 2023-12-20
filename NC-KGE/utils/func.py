@@ -21,11 +21,11 @@ def sparse_mx_to_torch_sparse_tensor(sparse_mx):
     return torch.sparse.FloatTensor(indices, values, shape)
 
 
-# 生成训练S使用的邻接矩阵(值为1)
+
 def gen_adj_S(sample_struct_edges, values):
     shape_size = max([max(sample_struct_edges[:, 0]), max(sample_struct_edges[:, 1])]) + 1
     sedges = np.array(list(sample_struct_edges), dtype=np.int32).reshape(
-        sample_struct_edges.shape)  # sedges [74431, 2] 边的数量
+        sample_struct_edges.shape)  
     sadj = sp.coo_matrix((values, (sedges[:, 0], sedges[:, 1])),
                          shape=(shape_size, shape_size),
                          dtype=np.float32)
@@ -50,12 +50,12 @@ def normalize(mx):
 def gen_adj(sample_struct_edges):
     shape_size = max([max(sample_struct_edges[:, 0]), max(sample_struct_edges[:, 1])]) + 1
     sedges = np.array(list(sample_struct_edges), dtype=np.int32).reshape(
-        sample_struct_edges.shape)  # sedges [74431, 2] 边的数量
+        sample_struct_edges.shape)  
     sadj = sp.coo_matrix((np.ones(sedges.shape[0]), (sedges[:, 0], sedges[:, 1])),
                          shape=(shape_size, shape_size),
                          dtype=np.float32)
-    sadj = sadj + sadj.T.multiply(sadj.T > sadj) - sadj.multiply(sadj.T > sadj)  # 生成对称邻接矩阵
-    nsadj = normalize(sadj + sp.eye(sadj.shape[0]))  # 添加对角线值：1
+    sadj = sadj + sadj.T.multiply(sadj.T > sadj) - sadj.multiply(sadj.T > sadj)  
+    nsadj = normalize(sadj + sp.eye(sadj.shape[0]))  
     nsadj = sparse_mx_to_torch_sparse_tensor(nsadj)
     return nsadj
 
@@ -75,7 +75,7 @@ def specify_node_update(rel_dic):
         new_entity2id[i] = {}
         for j, _ in enumerate(item):
             new_entity2id[i][_] = j
-    # update new subgraph entity id
+    
     new_rel_dic = {}
     for key, tris in rel_dic.items():
         temp = []
@@ -127,7 +127,7 @@ def get_key(dict, value):
     return [k for k, v in dict.items() if v == value]
 
 
-def batch_graph_gen(args): #生成或者加载batchgraph_edgeindex.txt文件
+def batch_graph_gen(args): 
     new_entity2id = get_new_entity2id(args)
     edge_index = read_edge_index(args)
     big_graph = []
@@ -137,17 +137,11 @@ def batch_graph_gen(args): #生成或者加载batchgraph_edgeindex.txt文件
         for k in val.keys():
             temp.append(k)
         entity_index.append(temp)
-    # rows = []
-    # cols = []
-    # for index, edge in enumerate(edge_index):
-    #     for i in range(len(edge[0])):
-    #         rows.append(get_key(new_entity2id[index], edge[0][i])[0])
-    #         cols.append(get_key(new_entity2id[index], edge[1][i])[0])
-    # print(len(rows))
-    adj_edge = np.loadtxt( '../data/' + args.dataset + "/batchgraph_edgeindex.txt")  # rows and columns
+
+    adj_edge = np.loadtxt( '../data/' + args.dataset + "/batchgraph_edgeindex.txt")  
     adj_edge = adj_edge.astype(int)
-    # adj_edge = [rows, cols]
-    # np.savetxt("/home/hyf/ldy/CMGAT_v1/data/DB15k/batchgraph_edgeindex.txt", adj_edge)
+    
+    
     for i in range(len(new_entity2id)):
         sub_graph = tfg.Graph(x=entity_index[i], edge_index=edge_index[i])
         big_graph.append(sub_graph)
@@ -173,6 +167,6 @@ def read_edge_index(args):
 
 def gen_shuf_fts(entity):
     idx = np.random.permutation(len(entity))
-    # torch.randn: 标准正态分布 torch.rand: 均匀分布
-    shuf_fts = entity[idx, :] + torch.randn(entity.shape).cuda()  # 打乱，正态分布 （diffuse+高斯噪音）
+    
+    shuf_fts = entity[idx, :] + torch.randn(entity.shape).cuda()  
     return shuf_fts
