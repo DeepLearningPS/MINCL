@@ -33,7 +33,7 @@
 ```shell
 
 # PharmKG8k-28
-CUDA_VISIBLE_DEVICES=0 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_nckge_no_dgi.py  --dataset PharmKG8k-28 --loss_function contrastive_loss --score_func conve --temperature 1.0 --stop_num 50 --model_dir ./pharm8k_model_save  --log_dir ./pharm8k_log
+CUDA_VISIBLE_DEVICES=0 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_nckge_no_dgi.py  --dataset New_PharmKG8k-28 --loss_function contrastive_loss --score_func conve --temperature 1.0 --stop_num 50 --model_dir ./pharm8k_model_save  --log_dir ./pharm8k_log
 
 # DRKG17k-21
 CUDA_VISIBLE_DEVICES=0 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 --nnodes 1 --nproc_per_node 1 --rdzv_id 1 run_nckge_no_dgi.py  --dataset DRKG17k-21 --loss_function contrastive_loss --score_func conve --temperature 1.0 --stop_num 50 --model_dir ./drkg17k-21_model_save  --log_dir ./drkg17k-21_log
