@@ -452,6 +452,24 @@ class Runner(object):
         return loss
 
 
+    def isinf_nan_if(self, x):
+        if torch.isinf(x).any():
+            #raise Exception(f'is inf:{x}')
+            return 'inf'
+        elif torch.isnan(x).any():
+            #raise Exception(f'is nan:{x}')
+            return 'nan'
+        else:
+            return 'success'
+        
+
+    def isinf_nan(self, x):
+        if torch.isinf(x).any():
+            raise Exception(f'is inf:{x}')
+            #return 'inf'
+        if torch.isnan(x).any():
+            raise Exception(f'is nan:{x}')
+            #return 'nan'
 
     def contrastive_loss(self, pred, label, tau_plus, beta, estimator, obj):
         try:
