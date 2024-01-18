@@ -4,7 +4,7 @@
 
 <h4 align="center">Node-based Knowledge Graph Contrastive Learning for Medical Relationship Prediction</h4>
 
-
+<!--
 
 <h2 align="center">
   Overview of NC-KGE
@@ -12,6 +12,8 @@
 </h2>
 
 # We add some experiments in the appendix of the paper. Details can be found in the
+
+-->
 
 
 ### Dependencies
