@@ -41,15 +41,13 @@
 
 - Fast convergence of node-based contrastive learning plays an important role in some applications. DRKG ([BioKG: {A} Knowledge Graph for Relational Learning On Biological Data](https://dl.acm.org/doi/10.1145/3340531.3412776)) is a large biomedical dataset, and DRKG17k-21 is a subset of which we take the top 10\%. In order to further verify the efficiency of NC-KGE on DRKG, we randomly selected three subsets on it, namely DRKG35k-107, DRKG38k-107 and DRKG40k-107.
 
-<h2 align="center">
-  Overview of NC-KGE
+<h3 align="center">
   <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/data_statistics.png" alt="...">
-</h2>
+</h3>
 
-<h2 align="center">
-  Overview of NC-KGE
+<h3 align="center">
   <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/drkg_statistics.png" alt="...">
-</h2>
+</h3>
 
 
 ### Training model:
@@ -72,10 +70,8 @@ CUDA_VISIBLE_DEVICES=0 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 
 ```
 
 ### Ablation experiment:
-
-<h2 align="center">
-  Overview of NC-KGE
+<h3 align="center">
   <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/ablation_experiment.png" alt="...">
-</h2>
+</h3>
 
 ### Citation:
