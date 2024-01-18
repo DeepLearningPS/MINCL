@@ -28,7 +28,7 @@
 
 #### The detailed description of datasets is as follows:
 
-- FB15k-237 [Observed versus latent features for knowledge base and text inference](https://aclanthology.org/W15-4007/) dataset contains knowledge base relation triples and textual mentions of Freebase node pairs, as used in the work published in \cite{toutanova2015observed}. The knowledge base triples are a subset of the FB15K \cite{bordes2013translating}, originally derived from Freebase. The inverse relations are removed in FB15k-237. To obtain node descriptions and types, we employ the datasets made available by \cite{daza2021inductive}. 
+- FB15k-237 ([Observed versus latent features for knowledge base and text inference](https://aclanthology.org/W15-4007/)) dataset contains knowledge base relation triples and textual mentions of Freebase node pairs, as used in the work published in \cite{toutanova2015observed}. The knowledge base triples are a subset of the FB15K \cite{bordes2013translating}, originally derived from Freebase. The inverse relations are removed in FB15k-237. To obtain node descriptions and types, we employ the datasets made available by \cite{daza2021inductive}. 
 
 - {WN18RR} \cite{dettmers2018convolutional} is created from WN18 \cite{bordes2013translating}, which is a subset of WordNet. WN18 consists of 18 relations and 40,943 nodes. However, many text triples obtained by inverting triples from the training set. Thus WN18RR dataset \cite{dettmers2018convolutional} is created to ensure that the evaluation dataset does not have inverse relation test leakage. To obtain node descriptions and types, we employ the datasets made available by \cite{daza2021inductive}. 
 	
