@@ -11,7 +11,9 @@
   <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/cl.png" alt="...">
 </h2>
 
+<!--
 # We add some experiments in the appendix of the paper. Details can be found in https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE.pdf
+-->
 
 
 ### Dependencies
