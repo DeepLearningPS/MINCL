@@ -41,13 +41,13 @@
 
 - Fast convergence of node-based contrastive learning plays an important role in some applications. DRKG ([DRKG - Drug Repurposing Knowledge Graph for Covid-19](https://github.com/gnn4dr/DRKG/)) is a large biomedical dataset, and DRKG17k-21 is a subset of which we take the top 10\%. In order to further verify the efficiency of NC-KGE on DRKG, we randomly selected three subsets on it, namely DRKG35k-107, DRKG38k-107 and DRKG40k-107.
 
-<h3 align="center">
-  <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/data_statistics.png" alt="...">
-</h3>
+%<h3 align="center">
+  <%img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/data_statistics.png" alt="...">
+%</h3>
 
-<h3 align="center">
-  <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/drkg_statistics.png" alt="...">
-</h3>
+%<h3 align="center">
+  %<img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/drkg_statistics.png" alt="...">
+%</h3>
 
 
 ### Training model:
