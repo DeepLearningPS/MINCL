@@ -1,5 +1,5 @@
 <h1 align="center">
-  NC-KGE
+  MINCL
 </h1>
 
 <h4 align="center">Node-based Knowledge Graph Contrastive Learning for Medical Relationship Prediction</h4>
