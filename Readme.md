@@ -62,9 +62,5 @@ CUDA_VISIBLE_DEVICES=0 torchrun --rdzv_backend c10d --rdzv_endpoint localhost:0 
   
 ```
 
-### Ablation experiment:
-<h3 align="center">
-  <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/ablation_experiment.png" alt="...">
-</h3>
 
 ### Citation:
