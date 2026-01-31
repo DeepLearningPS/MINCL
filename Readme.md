@@ -7,7 +7,7 @@
 
 
 <h2 align="center">
-  <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/cl.png" alt="...">
+  <img align="center"  src="all_framwork2.png" alt="...">
 </h2>
 
 <!--
