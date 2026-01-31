@@ -7,7 +7,6 @@
 
 
 <h2 align="center">
-  Overview of NC-KGE
   <img align="center"  src="https://github.com/DeepLearningPS/NC-KGE/blob/main/NC-KGE/image/cl.png" alt="...">
 </h2>
 
